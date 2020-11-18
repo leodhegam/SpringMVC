@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="stylesignup.css.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+</head>
+<body class="bg-dark">
+<div class="container">
+    <div class="card col-md-6 mt-3 mb-3 p-0">
+        <div class="card-body bg-light" >
+            <div class="col">
+                <h1>Cadastro</h1>
+                <form  action="#" th:action="@{/salvar}" th:object="${newSurfer}" method="post">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Nome"  th:field="*{nome}" /> <br/>
+                            <p class="alert alert-warning" role="alert"  th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input class="form-control" type="email" placeholder="Email" th:field="*{email}" /> <br/>
+                            <p class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input class="form-control" min="1970" placeholder="Ano nascimento"  type="number" th:field="*{anoNascimento}" /> <br/>
+                            <p class="alert alert-warning" role="alert"  th:if="${#fields.hasErrors('anoNascimento')}" th:errors="*{anoNascimento}"/>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Pico"  type="text" th:field="*{pico}" /> <br/>
+                            <p  class="alert alert-warning" role="alert"  th:if="${#fields.hasErrors('pico')}" th:errors="*{pico}"/>
+                        </div>
+                    </div>
+                    <a  class="btn btn-outline-primary m-3" href="/">Voltar</a>
+                    <button class="btn btn-outline-success mr-2" type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
